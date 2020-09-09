@@ -21,5 +21,8 @@
   ],
   "include": [
     "**/*.d.ts"
+  ],
+  "exclude": [
+    "**/*.stories.*"
   ]
 }
