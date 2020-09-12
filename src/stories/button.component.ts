@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     type="button"
     (click)="onClick.emit($event)"
     [ngClass]="classes"
-    [ngStyle]="{ 'background-color': backgroundColor }"
+    [ngStyle]="styles"
   >
     {{ label }}
   </button>`,
@@ -45,9 +45,27 @@ export default class ButtonComponent {
   @Output()
   onClick = new EventEmitter<Event>();
 
+  @Input()
+  outline = false;
+
+  @Input()
+  outlineColor?: string;
+
   public get classes(): string[] {
     const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+    let classes = [
+      'storybook-button', 
+      `storybook-button--${this.size}`, 
+      mode
+    ];
+    if(this.outline) classes.push('storybook-button--outline');
+    return classes;
+  }
 
-    return ['storybook-button', `storybook-button--${this.size}`, mode];
+  public get styles(): any {
+    return { 
+      'background-color': this.backgroundColor,
+      'border-color': this.outlineColor, 
+    };
   }
 }
