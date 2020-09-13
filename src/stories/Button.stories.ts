@@ -5,6 +5,14 @@ import Button from './button.component';
 export default {
   title: 'Example/Button',
   component: Button,
+  parameters: {
+    backgrounds: {
+      values: [
+        { name: 'component-red', value: 'DarkRed' },
+        { name: 'component-green', value: 'DarkGreen' },
+      ],
+    },    
+  }  
   // argTypes: {
   //   backgroundColor: { control: 'color' },
   //   outlineColor: { control: 'color' },
