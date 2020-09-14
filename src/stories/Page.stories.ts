@@ -10,7 +10,7 @@ import Page from './page.component';
 import * as HeaderStories from './Header.stories';
 
 export default {
-  title: 'Example/Page',
+  title: 'Official/Example/Page',
   component: Header,
   decorators: [
     moduleMetadata({
